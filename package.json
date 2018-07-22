@@ -1,0 +1,31 @@
+{
+  "name": "apostrophe-signup",
+  "version": "2.0.0",
+  "description": "Lets the public sign up for accounts on a website powered by apostrophecms.",
+  "main": "index.js",
+  "dependencies": {
+    "bluebird": "^3.5.1",
+    "async": "^2.6.1",
+    "lodash": "^4.17.10"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/apostrophecms/apostrophe-signup.git"
+  },
+  "keywords": [
+    "apostrophecms",
+    "apostrophe",
+    "apostrophe-cms",
+    "signup"
+  ],
+  "author": "P'unk Avenue LLC",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/apostrophecms/apostrophe-signup/issues"
+  },
+  "homepage": "https://github.com/apostrophecms/apostrophe-signup#readme"
+}

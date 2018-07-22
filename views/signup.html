@@ -1,0 +1,22 @@
+{% extends data.outerLayout %}
+{% block title %}{{ __("Sign Up For An account") }}{% endblock %}
+
+{% block bodyClass %}apos-signup-page{% endblock %}
+
+{%- import "apostrophe-schemas:macros.html" as schemas -%}
+
+{% block main %}
+  <div class="apos-signup apos-ui" data-apos-signup>
+    <form class="apos-form" data-apos-form>
+      {{ schemas.fields(data.schema) }}
+      <button data-apos-signup-submit class="apos-submit">Sign Up</button>
+    </form>
+    <div class="apos-signup-error">
+      <h4>That username or email address may be in use. Please review and try again.</h4>
+    </div>
+    <div class="apos-signup-success">
+      <h4>Thanks! You'll get a confirmation email shortly.</h4>
+      <p>You must click the link in that email before you can use your new account. If you don't see it, be sure to check your spam folder. If problems persist try a different email address or provider.</p>
+    </div>
+  </div>
+{% endblock %}
