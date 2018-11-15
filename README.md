@@ -47,21 +47,24 @@ modules: {
 }
 ```
 
-Lets the public sign up for accounts. The user must receive an email
-at a unique address and confirm their account. 
-
-A signup page is then available at `/signup`. 
+Lets the public sign up for accounts. The user must receive an email at a unique address and confirm their account. 
 
 **The apostrophe-email module must be configured.** See
 [sending email from your Apostrophe project.](https://apostrophecms.org/docs/tutorials/howtos/email.html)
 
-## Overriding the signup page markup
+## Signing up
 
-Copy `views/signup.html` from this module to the `lib/modules/apostrophe-signup/views/signup.html` folder of your own project. *Do not modify it in `node_modules`, copy it to this new location, relative to your project's root.*
+Try going to `/signup`.
+
+## Overriding and styling the signup page
+
+You may override the `views/signup.html` template of this module by copying it to `lib/modules/apostrophe-signup/views` in your own project. As always, do **not** edit the copy in `node_modules`.
+
+You may output the signup form markup yourself, but each input element must be nested in a "fieldset" element, which need not be of that type but must have the right `data-name` attribute. Inspect the standard markup to see what this looks like. Tolerance for changes of this kind varies from schema field type to schema field type.
 
 ## Overriding the signup confirmation email
 
-Copy `views/signupEmail.html` from this module to the `lib/modules/apostrophe-signup/views/signupEmail.html` folder of your own project.
+Copy `views/signupEmail.html` from this module to the `lib/modules/apostrophe-signup/views/signupEmail.html` folder of your own project. As usual, **HTML in email is extremely limited,** so keep your expectations basic. This has nothing to do with Apostrophe and everything to do with email clients.
 
 ## If confirmation emails do not arrive
 
@@ -80,4 +83,3 @@ You can set the `afterSignupUrl` option to any URL you wish.
 In addition, `req.session.signup` is set to `true` for the duration of
 the user's first session. You can detect this in middleware, `pageBeforeSend`,
 et cetera.
-
