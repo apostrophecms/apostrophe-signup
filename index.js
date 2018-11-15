@@ -41,6 +41,7 @@ module.exports = {
       });
     };
 
+    console.log('adding route');
     self.apos.app.get(self.options.signupUrl, function(req, res) {
       if (req.user) {
         // User is already logged in, redirect to home page
