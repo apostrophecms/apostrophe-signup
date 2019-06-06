@@ -39,9 +39,6 @@ module.exports = {
       });
     };
 
-    console.log('adding route');
-    
-
     // Invoked just before a newly signed-up user is inserted into
     // the database. The user IS NOT confirmed yet. Override
     // as you see fit
