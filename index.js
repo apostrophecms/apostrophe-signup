@@ -72,7 +72,16 @@ module.exports = {
     };
 
     self.getSchema = function() {
-      return self.apos.schemas.subset(self.apos.users.schema, self.options.fields.concat([ 'email', 'password' ]));
+      var subset = self.apos.schemas.subset(self.apos.users.schema, self.options.fields.concat([ 'email', 'password' ]));
+      // Make the password field required, but don't modify
+      // the original schema, do a shallow clone
+      var passwordAt = _.findIndex(subset, { name: 'password' });
+      if (passwordAt !== -1) {
+        var password = _.clone(subset[passwordAt]);
+        password.required = true;
+        subset.splice(passwordAt, 1, password);
+      }
+      return subset;
     };
 
     self.getSignupConfirmLifetimeInMilliseconds = function() {
