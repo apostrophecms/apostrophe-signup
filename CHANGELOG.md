@@ -1,5 +1,10 @@
 # Changelog
 
+## 2.0.3
+
+* At signup the password field is now properly required.
+* Duplicate email or username now reported in a reasonable manner.
+
 ## 2.0.2
 
 * Added an `addRoutes` method to make it easier to override that behavior. Thanks to Jose96GIT.

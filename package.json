@@ -1,6 +1,6 @@
 {
   "name": "apostrophe-signup",
-  "version": "2.0.2",
+  "version": "2.0.3",
   "description": "Lets the public sign up for accounts on a website powered by apostrophecms.",
   "main": "index.js",
   "dependencies": {
