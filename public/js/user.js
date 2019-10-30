@@ -34,7 +34,7 @@ apos.define('apostrophe-signup', {
             $email.removeClass('apos-error');
             $username.removeClass('apos-error');
             return $.jsonCall(options.url, user, function(result) {
-              return callback((result.status === 'ok') ? null : result.status); 
+              return callback((result.status === 'ok') ? null : result); 
             }, callback);
           }
           function displayResult(err) {
@@ -42,6 +42,11 @@ apos.define('apostrophe-signup', {
             if (err) {
               if (Array.isArray(err)) {
                 // convert already displayed it
+              } else if (err.status && err.status === 'rules') {
+                var error = apos.schemas.error(_.find(options.schema, { name: 'password' }), 'rules');
+                error.message = err.messages.join(', ');
+                apos.schemas.showError($signup, error);
+                apos.schemas.scrollToError($signup);
               } else {
                 // treat it as an error on email and username,
                 // the most likely suspects

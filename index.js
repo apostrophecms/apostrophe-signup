@@ -1,3 +1,5 @@
+const _ = require('lodash');
+
 module.exports = {
   fields: [ 'firstName', 'lastName', 'username' ],
   hours: 48,
