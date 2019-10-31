@@ -1,5 +1,9 @@
 # Changelog
 
+## 2.0.4
+
+* Compatible with the new `passwordRules` option of the apostrophe module version 2.99.0 and up.
+
 ## 2.0.3
 
 * At signup the password field is now properly required.
