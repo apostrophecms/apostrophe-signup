@@ -2,6 +2,7 @@ const _ = require('lodash');
 
 module.exports = {
   fields: [ 'firstName', 'lastName', 'username' ],
+  requiredFields: [ 'password' ],
   hours: 48,
   signupUrl: '/signup',
   signupConfirmUrl: '/signup-confirm', 
@@ -74,14 +75,15 @@ module.exports = {
     };
 
     self.getSchema = function() {
-      var subset = self.apos.schemas.subset(self.apos.users.schema, self.options.fields.concat([ 'email', 'password' ]));
-      // Make the password field required, but don't modify
-      // the original schema, do a shallow clone
-      var passwordAt = _.findIndex(subset, { name: 'password' });
-      if (passwordAt !== -1) {
-        var password = _.clone(subset[passwordAt]);
-        password.required = true;
-        subset.splice(passwordAt, 1, password);
+      const requiredFields = self.options.requiredFields;
+      let subset = self.apos.schemas.subset(self.apos.users.schema, self.options.fields.concat([ 'email', 'password' ]));
+      for (let i = 0; i < requiredFields.length; i++) {
+        let requiredFieldAt = _.findIndex(subset, { name: requiredFields[i] });
+        if (requiredFieldAt !== -1) {
+          let field = _.clone(subset[requiredFieldAt]);
+          field.required = true;
+          subset.splice(requiredFieldAt, 1, field);
+        }
       }
       return subset;
     };
