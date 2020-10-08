@@ -1,9 +1,5 @@
 # Changelog
 
-## 2.0.5
-
-* Added a `requiredFields` option to add fields to be converted into required.
-
 ## 2.0.4
 
 * Compatible with the new `passwordRules` option of the apostrophe module version 2.99.0 and up.
