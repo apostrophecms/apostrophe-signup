@@ -30,7 +30,11 @@ modules: {
     // They will always be asked for their email address
     // and password. If you leave `username` off this list,
     // the user can only log in with their email address.
-    fields: [ 'firstName', 'lastName', 'username' ]
+    fields: [ 'firstName', 'lastName', 'username' ],
+    // Allow the user to enter a subset of the fields to be 
+    // converted into required ones. By default only password
+    // field is been converted to a required field.
+    requiredFields: [ 'password' ]
   },
 
   // The apostrophe-email module must be configured
